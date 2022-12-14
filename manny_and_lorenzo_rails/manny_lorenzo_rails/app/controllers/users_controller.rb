@@ -10,19 +10,19 @@ class UsersController < ApplicationController
         # render json: @user
         render json: params
     end
-    def create
-        render json: params
-    end
-
     # def create
-    #     @user = Users.new(user_params)
-        
-    #     if @user.save
-    #            redirect_to user_url(@user)
-    #     else
-    #         render json: @user.errors.full_messages, status: 422
-    #     end
+    #     render json: params
     # end
+
+    def create
+        @user = Users.new(user_params)
+        
+        if @user.save
+               redirect_to user_url(@user)
+        else
+            render json: @user.errors.full_messages, status: 422
+        end
+    end
     #     def update
     #         @user = User.find(params[:id])
 
