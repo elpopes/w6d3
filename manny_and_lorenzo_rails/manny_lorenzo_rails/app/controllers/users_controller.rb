@@ -3,20 +3,12 @@ require 'byebug'
 class UsersController < ApplicationController
     def index
         render json: User.all
-        # render json: params
-    
-    
     end
-
 
     def show
         @user = User.find(params[:id])
         render json: @user
-        # render json: params
     end
-    # def create
-    #     render json: params
-    # end
 
     def create
 
@@ -50,9 +42,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email)
     end
-
-
-    
-
 
 end
